@@ -12,8 +12,8 @@ public class ColmnuarTransposiotionCipher {
 	}
 	
 	public String encrypt() {
-//		Math.ceil() accepts double, we did casting to round it to upper number and we did another casting to convert it to char type
-		int nbColumns = key.length(); 
+    int nbColumns = key.length(); 
+    //		Math.ceil() accepts double, we did casting to round it to upper number and we did another casting to convert it to char type
     double nbRows = Math.ceil((double) plainText.length()/nbColumns);
 		char[][] table = new char [(char)nbRows][nbColumns];
 		int plainIdx = 0;
@@ -30,9 +30,7 @@ public class ColmnuarTransposiotionCipher {
 		char a [] = keyCopy.toCharArray();
 		 Arrays.sort(a);
 		
-//		plaint text length - key length = nb of rows 
 //		picking up the cipher text:
-//		String cipherText = "";
 		int sortedIdx = 0;
 		
 		for (int i = keyCopy.indexOf(a[sortedIdx]); sortedIdx < keyCopy.length();) {
@@ -45,8 +43,6 @@ public class ColmnuarTransposiotionCipher {
 			keyCopy = keyCopy.replaceFirst(keyCopy.charAt(i)+"", "*"); // to get rid of first char and find next occurrence 
 		}
 		
-//		System.out.print("Your cipher text is: ");
-//		System.out.println(cipherText);
 		return cipherText;
 
 	}
@@ -59,17 +55,11 @@ public class ColmnuarTransposiotionCipher {
 		String keyCopy = key; 
 		int nbLetterOflastRow = cipherText.length() % nbColumns;
 
-    // // filling the table:
-    // for (int i = 0; cipherIdx < plainText.length(); i++) { // fill the array until the plain text finishes
-		// 	for (int j = 0; j < nbColumns && cipherIdx < plainText.length(); j++) { // fill in a row way + stop when the plain text finished 
-		// 		table[i][j] = cipherText.charAt(cipherIdx++);
-		// 		}
-		// }
+  
 
     char a [] = keyCopy.toCharArray();
 		 Arrays.sort(a);
 		
-//		plaint text length - key length = nb of rows 
 //		picking up the cipher text:
 		String decryptedText = "";
 		int sortedIdx = 0;
